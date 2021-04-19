@@ -27,6 +27,7 @@ echo
 echo
 
 echo -e $B"Installing CCS Script..."
+chmod +x ccs
 cp ccs /usr/bin/ccs
 mkdir /$(whoami)/ccs
 mkdir /$(whoami)/ccs/Output
