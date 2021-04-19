@@ -1,11 +1,12 @@
 #!/bin/bash
 
 banner() {
-	orange="\e[1;93m"
-	echo -e $orange
-	figlet 'C C S' 
-	#cat banner.txt
-	printf " \e[1;92;5m [\e[1;37;5m+\e[92m]\e[1;34;5m D E V E L O P E R :  A L B I N  J O S E P H  C . R  \e[0m\e[1;5m[ UCEH ]\e[0m"
+	clear	
+	red="\e[1;91m"
+	echo -e $red
+	cat /$(whoami)/ccs/banner/banner.txt
+	echo
+	printf "\e[1;92;5m[\e[1;37;5m+\e[92m]\e[1;34;5m Script By : Albin Joseph C. R \e[0m\e[1;5m[ UCEH ]\e[0m"
 	echo ""
 }
 

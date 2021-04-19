@@ -1,9 +1,8 @@
 #!/bin/bash
+
 R="\033[1;31m[*] \033[0m"
 B="\033[1;34m[*] \033[0m"
 G="\033[1;32m[+] \033[0m"
-#R="\033[1;31m[-] \033[0m"
-W="\033[1;77m[>] \033[0m"
 
 progress() {
 	count=0
@@ -31,6 +30,7 @@ echo -e $B"Installing CCS Script..."
 cp ccs /usr/bin/ccs
 mkdir /$(whoami)/ccs
 mkdir /$(whoami)/ccs/Output
+cp -R banner /$(whoami)/ccs/banner 
 progress
 sleep 1
 clear
