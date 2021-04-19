@@ -13,11 +13,11 @@
 - **cd ccs**
 - **./install.sh**
 
-## <u>Usage :</u>
+## <u>✏️ Usage :</u>
 
-**In Terminal type ccs**.
+- **In Terminal type ccs**.
 
-**You need to provide Input and Output file names.**
+- **You need to provide Input and Output file names.**
 
 ## <u>☕ Buy Me A Coffee :</u>
 
