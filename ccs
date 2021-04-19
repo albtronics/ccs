@@ -1,0 +1,160 @@
+#!/bin/bash
+
+banner() {
+	orange="\e[1;93m"
+	echo -e $orange
+	figlet 'C C S' 
+	#cat banner.txt
+	printf " \e[1;92;5m [\e[1;37;5m+\e[92m]\e[1;34;5m D E V E L O P E R :  A L B I N  J O S E P H  C . R  \e[0m\e[1;5m[ UCEH ]\e[0m"
+	echo ""
+}
+
+menu() {
+	echo ""
+	printf " \e[1;31m[\e[0m\e[1;77m01\e[0m\e[1;31m]\e[0m\e[1;93m C \e[0m\n"
+	printf " \e[1;31m[\e[0m\e[1;77m02\e[0m\e[1;31m]\e[0m\e[1;93m C + + \e[0m\n"
+	
+	echo ""
+	read -p $' \e[1;31m[\e[0m\e[1;77m~\e[0m\e[1;31m]\e[0m\e[1;92m Select an option: \e[0m\e[1;96m\en' option
+	echo ""
+	if [[ $option == 1 || $option == 01 ]]; then
+	c_code
+	elif [[ $option == 2 || $option == 02 ]]; then	
+	cpp_code
+	fi
+}
+
+newFile() {
+	blue="\e[1;34m"
+	echo -e $blue
+	
+	read -p "Enter the name of the file: " input
+	mousepad "/root/ccs/$input"
+		
+	read -p "Do you want to see the output?(y/n): " ch2
+	if [ $ch2 == y ]
+	then
+
+	read -p "Enter the Output File Name :" output	
+	g++ $input -o $output
+	mv $output "/root/ccs/Output/"
+	cd "/root/ccs/Output/"
+	echo ""
+	
+	red="\e[1;91m"
+	echo -e $red
+	./$output
+	fi
+
+	if [ $ch2 == n ]
+	then
+	exit 1
+	fi
+}
+
+existingFile() {
+	green="\e[1;32m"
+	echo -e $green
+
+	read -p "Enter the Input File Name :" input
+	read -p "Enter the Output File Name :" output
+
+	g++ $input -o $output
+
+	mv $output "/root/ccs/Output/"
+	cd "/root/ccs/Output/"
+	echo ""
+	red="\e[1;91m"
+	echo -e $red
+	./$output
+}
+
+newFile_c() {
+	blue="\e[1;34m"
+	echo -e $blue
+	
+	read -p "Enter the name of the file: " input_c
+	mousepad "/root/ccs/$input_c"
+		
+	read -p "Do you want to see the output?(y/n): " ch4
+	if [ $ch4 == y ]
+		then
+
+		read -p "Enter the Output File Name :" output_c	
+		gcc $input_c -o $output_c
+		
+		mv $output_c "/root/ccs/Output/"
+		cd "/root/ccs/Output/"
+		echo ""
+	
+		red="\e[1;91m"
+		echo -e $red
+		./$output_c
+	fi
+
+	if [ $ch4 == n ]
+		then
+		exit 1
+	fi
+}
+
+existingFile_c() {
+	green="\e[1;32m"
+	echo -e $green
+
+	read -p "Enter the Input File Name :" input_c
+	read -p "Enter the Output File Name :" output_c
+
+	gcc $input_c -o $output_c
+
+	mv $output_c "/root/ccs/Output/"
+	cd "/root/ccs/Output/"
+	echo ""
+	red="\e[1;91m"
+	echo -e $red
+	./$output_c
+}
+
+cpp_code() {
+	orange="\e[1;93m"
+	echo -e $orange
+
+	cd "/root/ccs/" &>/dev/null # C++ File Location
+	echo "Do you want to create new .cpp file?(y/n)"
+	sleep 0.1
+	read -p "Type 'n' to run existing .cpp file: " ch1 
+
+	if [ $ch1 == y ]
+		then
+		newFile
+	fi
+
+	if [ $ch1 == n ]
+		then
+		existingFile
+	fi
+}
+
+c_code() {
+	orange="\e[1;93m"
+	echo -e $orange
+
+	cd "/root/ccs/" &>/dev/null # C File Location
+	echo "Do you want to create new .c file?(y/n)"
+	sleep 0.1
+	read -p "Type 'n' to run existing .c file: " ch3 
+
+	if [ $ch3 == y ]
+		then
+		newFile_c
+	fi
+
+	if [ $ch3 == n ]
+		then
+		existingFile_c
+	fi
+}
+
+banner
+menu
+
