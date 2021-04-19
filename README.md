@@ -10,7 +10,6 @@
 
 - **git clone https://github.com/albtronics/ccs.git**
 - **cd ccs**
-- **chmod +x ccs**
 - **chmod +x install.sh**
 - **./install.sh**
 
