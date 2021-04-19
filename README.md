@@ -11,6 +11,8 @@
 - **sudo apt-get install figlet**
 - **git clone https://github.com/albtronics/ccs.git**
 - **cd ccs**
+- **chmod +x ccs**
+- **chmod +x install.sh**
 - **./install.sh**
 
 ## <u>✏️ Usage :</u>
