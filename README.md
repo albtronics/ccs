@@ -6,7 +6,7 @@
 
 
 
-## <u>Installation :</u>
+## <u>💿 Installation :</u>
 
 - **sudo apt-get install figlet**
 - **git clone https://github.com/albtronics/ccs.git**
