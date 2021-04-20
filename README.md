@@ -11,7 +11,7 @@
 - **git clone https://github.com/albtronics/ccs.git**
 - **sudo apt-get install mousepad**
 - **cd ccs**
-- **chmod +x install.sh**
+- **sudo chmod +x install.sh**
 - **./install.sh**
 
 ## <u>✏️ Usage :</u>
