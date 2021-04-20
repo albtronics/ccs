@@ -30,16 +30,16 @@ newFile() {
 	echo -e $blue
 	
 	read -p "Enter the name of the file: " input
-	mousepad "/root/ccs/$input"
+	sudo mousepad "/$(whoami)/ccs/$input"
 		
 	read -p "Do you want to see the output?(y/n): " ch2
-	if [ $ch2 == y ]
+	if [ $ch2 == y || $ch2 == Y ]
 	then
 
 	read -p "Enter the Output File Name :" output	
 	g++ $input -o $output
-	mv $output "/root/ccs/Output/"
-	cd "/root/ccs/Output/"
+	sudo mv $output "/$(whoami)/ccs/Output/"
+	cd "/$(whoami)/ccs/Output/"
 	echo ""
 	
 	red="\e[1;91m"
@@ -47,7 +47,7 @@ newFile() {
 	./$output
 	fi
 
-	if [ $ch2 == n ]
+	if [ $ch2 == n || $ch2 == N]
 	then
 	exit 1
 	fi
@@ -62,8 +62,8 @@ existingFile() {
 
 	g++ $input -o $output
 
-	mv $output "/root/ccs/Output/"
-	cd "/root/ccs/Output/"
+	sudo mv $output "/$(whoami)/ccs/Output/"
+	cd "/$(whoami)/ccs/Output/"
 	echo ""
 	red="\e[1;91m"
 	echo -e $red
@@ -75,17 +75,17 @@ newFile_c() {
 	echo -e $blue
 	
 	read -p "Enter the name of the file: " input_c
-	mousepad "/root/ccs/$input_c"
+	sudo mousepad "/$(whoami)/ccs/$input_c"
 		
 	read -p "Do you want to see the output?(y/n): " ch4
-	if [ $ch4 == y ]
+	if [ $ch4 == y || $ch4 == Y]
 		then
 
 		read -p "Enter the Output File Name :" output_c	
 		gcc $input_c -o $output_c
 		
-		mv $output_c "/root/ccs/Output/"
-		cd "/root/ccs/Output/"
+		sudo mv $output_c "/$(whoami)/ccs/Output/"
+		cd "/$(whoami)/ccs/Output/"
 		echo ""
 	
 		red="\e[1;91m"
@@ -93,7 +93,7 @@ newFile_c() {
 		./$output_c
 	fi
 
-	if [ $ch4 == n ]
+	if [ $ch4 == n || $ch4 == N]
 		then
 		exit 1
 	fi
@@ -108,8 +108,8 @@ existingFile_c() {
 
 	gcc $input_c -o $output_c
 
-	mv $output_c "/root/ccs/Output/"
-	cd "/root/ccs/Output/"
+	sudo mv $output_c "/$(whoami)/ccs/Output/"
+	cd "/$(whoami)/ccs/Output/"
 	echo ""
 	red="\e[1;91m"
 	echo -e $red
@@ -120,17 +120,17 @@ cpp_code() {
 	orange="\e[1;93m"
 	echo -e $orange
 
-	cd "/root/ccs/" &>/dev/null # C++ File Location
+	cd "/$(whoami)/ccs/" &>/dev/null # C++ File Location
 	echo "Do you want to create new .cpp file?(y/n)"
 	sleep 0.1
 	read -p "Type 'n' to run existing .cpp file: " ch1 
 
-	if [ $ch1 == y ]
+	if [ $ch1 == y || $ch1 == Y]
 		then
 		newFile
 	fi
 
-	if [ $ch1 == n ]
+	if [ $ch1 == n || $ch1 == N]
 		then
 		existingFile
 	fi
@@ -140,17 +140,17 @@ c_code() {
 	orange="\e[1;93m"
 	echo -e $orange
 
-	cd "/root/ccs/" &>/dev/null # C File Location
+	cd "/$(whoami)/ccs/" &>/dev/null # C File Location
 	echo "Do you want to create new .c file?(y/n)"
 	sleep 0.1
 	read -p "Type 'n' to run existing .c file: " ch3 
 
-	if [ $ch3 == y ]
+	if [ $ch3 == y || $ch3 == Y]
 		then
 		newFile_c
 	fi
 
-	if [ $ch3 == n ]
+	if [ $ch3 == n || $ch3 == N]
 		then
 		existingFile_c
 	fi

@@ -27,11 +27,11 @@ echo
 echo
 
 echo -e $B"Installing CCS Script..."
-chmod +x ccs
-cp ccs /usr/bin/ccs
-mkdir /$(whoami)/ccs
-mkdir /$(whoami)/ccs/Output
-cp -R banner /$(whoami)/ccs/banner 
+sudo chmod +x ccs
+sudo cp ccs /usr/bin/ccs
+sudo mkdir /$(whoami)/ccs
+sudo mkdir /$(whoami)/ccs/Output
+sudo cp -R banner /$(whoami)/ccs/banner 
 progress
 sleep 1
 clear
