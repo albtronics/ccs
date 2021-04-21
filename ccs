@@ -30,7 +30,7 @@ newFile() {
 	echo -e $blue
 	
 	read -p "Enter the name of the file: " input
-	sudo nano "/home/$(whoami)/ccs/$input"
+	mousepad "/home/$(whoami)/ccs/$input"
 		
 	read -p "Do you want to see the output?(y/n): " ch2
 	if [ $ch2 == y ]
@@ -75,7 +75,7 @@ newFile_c() {
 	echo -e $blue
 	
 	read -p "Enter the name of the file: " input_c
-	sudo nano "/home/$(whoami)/ccs/$input_c"
+	mousepad "/home/$(whoami)/ccs/$input_c"
 		
 	read -p "Do you want to see the output?(y/n): " ch4
 	if [ $ch4 == y ]
