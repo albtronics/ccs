@@ -4,7 +4,7 @@ banner() {
 	clear	
 	red="\e[1;91m"
 	echo -e $red
-	cat /$(whoami)/ccs/banner/banner.txt
+	cat /home/$(whoami)/ccs/banner/banner.txt
 	echo
 	printf "\e[1;92;5m[\e[1;37;5m+\e[92m]\e[1;34;5m Script By : Albin Joseph C. R \e[0m\e[1;5m[ UCEH ]\e[0m"
 	echo ""
@@ -30,16 +30,16 @@ newFile() {
 	echo -e $blue
 	
 	read -p "Enter the name of the file: " input
-	sudo mousepad "/$(whoami)/ccs/$input"
+	sudo nano "/home/$(whoami)/ccs/$input"
 		
 	read -p "Do you want to see the output?(y/n): " ch2
-	if [ $ch2 == y || $ch2 == Y ]
+	if [ $ch2 == y ]
 	then
 
 	read -p "Enter the Output File Name :" output	
 	g++ $input -o $output
-	sudo mv $output "/$(whoami)/ccs/Output/"
-	cd "/$(whoami)/ccs/Output/"
+	sudo mv $output "/home/$(whoami)/ccs/Output/"
+	cd "/home/$(whoami)/ccs/Output/"
 	echo ""
 	
 	red="\e[1;91m"
@@ -47,7 +47,7 @@ newFile() {
 	./$output
 	fi
 
-	if [ $ch2 == n || $ch2 == N]
+	if [ "$ch2" == "n" ] 
 	then
 	exit 1
 	fi
@@ -62,8 +62,8 @@ existingFile() {
 
 	g++ $input -o $output
 
-	sudo mv $output "/$(whoami)/ccs/Output/"
-	cd "/$(whoami)/ccs/Output/"
+	sudo mv $output "/home/$(whoami)/ccs/Output/"
+	cd "/home/$(whoami)/ccs/Output/"
 	echo ""
 	red="\e[1;91m"
 	echo -e $red
@@ -75,17 +75,17 @@ newFile_c() {
 	echo -e $blue
 	
 	read -p "Enter the name of the file: " input_c
-	sudo mousepad "/$(whoami)/ccs/$input_c"
+	sudo nano "/home/$(whoami)/ccs/$input_c"
 		
 	read -p "Do you want to see the output?(y/n): " ch4
-	if [ $ch4 == y || $ch4 == Y]
+	if [ $ch4 == y ]
 		then
 
 		read -p "Enter the Output File Name :" output_c	
 		gcc $input_c -o $output_c
 		
-		sudo mv $output_c "/$(whoami)/ccs/Output/"
-		cd "/$(whoami)/ccs/Output/"
+		sudo mv $output_c "/home/$(whoami)/ccs/Output/"
+		cd "/home/$(whoami)/ccs/Output/"
 		echo ""
 	
 		red="\e[1;91m"
@@ -93,7 +93,7 @@ newFile_c() {
 		./$output_c
 	fi
 
-	if [ $ch4 == n || $ch4 == N]
+	if [ $ch4 == n ]
 		then
 		exit 1
 	fi
@@ -108,8 +108,8 @@ existingFile_c() {
 
 	gcc $input_c -o $output_c
 
-	sudo mv $output_c "/$(whoami)/ccs/Output/"
-	cd "/$(whoami)/ccs/Output/"
+	sudo mv $output_c "/home/$(whoami)/ccs/Output/"
+	cd "/home/$(whoami)/ccs/Output/"
 	echo ""
 	red="\e[1;91m"
 	echo -e $red
@@ -120,17 +120,17 @@ cpp_code() {
 	orange="\e[1;93m"
 	echo -e $orange
 
-	cd "/$(whoami)/ccs/" &>/dev/null # C++ File Location
+	cd "/home/$(whoami)/ccs/" &>/dev/null # C++ File Location
 	echo "Do you want to create new .cpp file?(y/n)"
 	sleep 0.1
 	read -p "Type 'n' to run existing .cpp file: " ch1 
 
-	if [ $ch1 == y || $ch1 == Y]
+	if [ $ch1 == y ]
 		then
 		newFile
 	fi
 
-	if [ $ch1 == n || $ch1 == N]
+	if [ $ch1 == n ]
 		then
 		existingFile
 	fi
@@ -140,17 +140,17 @@ c_code() {
 	orange="\e[1;93m"
 	echo -e $orange
 
-	cd "/$(whoami)/ccs/" &>/dev/null # C File Location
+	cd "/home/$(whoami)/ccs/" &>/dev/null # C File Location
 	echo "Do you want to create new .c file?(y/n)"
 	sleep 0.1
 	read -p "Type 'n' to run existing .c file: " ch3 
 
-	if [ $ch3 == y || $ch3 == Y]
+	if [ $ch3 == y ]
 		then
 		newFile_c
 	fi
 
-	if [ $ch3 == n || $ch3 == N]
+	if [ $ch3 == n ]
 		then
 		existingFile_c
 	fi

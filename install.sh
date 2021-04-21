@@ -29,9 +29,9 @@ echo
 echo -e $B"Installing CCS Script..."
 sudo chmod +x ccs
 sudo cp ccs /usr/bin/ccs
-sudo mkdir /$(whoami)/ccs
-sudo mkdir /$(whoami)/ccs/Output
-sudo cp -R banner /$(whoami)/ccs/banner 
+sudo mkdir /home/$(whoami)/ccs
+sudo mkdir /home/$(whoami)/ccs/Output
+sudo cp -R banner /home/$(whoami)/ccs/banner 
 progress
 sleep 1
 clear
